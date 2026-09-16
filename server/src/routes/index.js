@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const authRoutes = require('./authRoutes');
 const userRoutes = require('./userRoutes');
+const productRoutes = require('./productRoutes');
+const customerRoutes = require('./customerRoutes');
+const supplierRoutes = require('./supplierRoutes');
 
-// Health check
 router.get('/health', (req, res) => {
   res.json({
     success: true,
@@ -15,5 +17,8 @@ router.get('/health', (req, res) => {
 
 router.use('/auth', authRoutes);
 router.use('/users', userRoutes);
+router.use('/products', productRoutes);
+router.use('/customers', customerRoutes);
+router.use('/suppliers', supplierRoutes);
 
 module.exports = router;
