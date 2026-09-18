@@ -10,6 +10,10 @@ import ProductsPage from './pages/ProductsPage';
 import CustomersPage from './pages/CustomersPage';
 import SuppliersPage from './pages/SuppliersPage';
 import UsersPage from './pages/UsersPage';
+import SalesOrdersPage from './pages/SalesOrdersPage';
+import PurchaseOrdersPage from './pages/PurchaseOrdersPage';
+import GRNPage from './pages/GRNPage';
+import InvoicesPage from './pages/InvoicesPage';
 import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './routes/ProtectedRoute';
 import RoleRoute from './routes/RoleRoute';
@@ -39,30 +43,30 @@ function App() {
             <SuppliersPage />
           </RoleRoute>
         } />
+        <Route path="sales-orders" element={
+          <RoleRoute roles={['admin', 'sales']}>
+            <SalesOrdersPage />
+          </RoleRoute>
+        } />
+        <Route path="purchase-orders" element={
+          <RoleRoute roles={['admin', 'purchase', 'inventory']}>
+            <PurchaseOrdersPage />
+          </RoleRoute>
+        } />
+        <Route path="grn" element={
+          <RoleRoute roles={['admin', 'purchase', 'inventory']}>
+            <GRNPage />
+          </RoleRoute>
+        } />
+        <Route path="invoices" element={
+          <RoleRoute roles={['admin', 'sales']}>
+            <InvoicesPage />
+          </RoleRoute>
+        } />
         <Route path="users" element={
           <RoleRoute roles={['admin']}>
             <UsersPage />
           </RoleRoute>
-        } />
-        <Route path="sales-orders" element={
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h5">Sales Orders — Coming Day 4</Typography>
-          </Box>
-        } />
-        <Route path="purchase-orders" element={
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h5">Purchase Orders — Coming Day 4</Typography>
-          </Box>
-        } />
-        <Route path="grn" element={
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h5">GRN — Coming Day 5</Typography>
-          </Box>
-        } />
-        <Route path="invoices" element={
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h5">Invoices — Coming Day 5</Typography>
-          </Box>
         } />
       </Route>
 
