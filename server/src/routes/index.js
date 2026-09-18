@@ -9,6 +9,7 @@ const salesOrderRoutes = require('./salesOrderRoutes');
 const purchaseOrderRoutes = require('./purchaseOrderRoutes');
 const grnRoutes = require('./grnRoutes');
 const invoiceRoutes = require('./invoiceRoutes');
+const dashboardRoutes = require('./dashboardRoutes');
 
 router.get('/health', (req, res) => {
   res.json({
@@ -28,5 +29,6 @@ router.use('/sales-orders', salesOrderRoutes);
 router.use('/purchase-orders', purchaseOrderRoutes);
 router.use('/grn', grnRoutes);
 router.use('/invoices', invoiceRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 module.exports = router;
